@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">◘
+		<link rel="stylesheet" href="HoC.css"/> 
+		<script src="jquery.min.js"></script> 
+		<script src="HoC.js"></script>
+	</head>
+	
+	<body>
+
+		<div class = "game">
+		
+			<h1> <span class="hot"> Hot </span> or <span class="cold">Cold? </span> </h1>
+		
+			<h3> We have randomly picked a number between 1-100. </br> Let's see how long it takes for you to guess it! </h3>
+		
+				Enter your guess here: <input type="number" name="guess" id="guess" min=0 max=99 onchange="displaymessage()">
+				<input type="hidden" id="choosen" name="choosen" value=0>
+			
+			<div id = "test"></div>
+		</div> 
+		
+	</body>
+</html>
+  

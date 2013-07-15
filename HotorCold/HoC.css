@@ -1,0 +1,32 @@
+body {
+	background-image: url('http://fpladdicts.files.wordpress.com/2012/12/hot-and-cold-flamesvwfwf.jpg');
+}
+.game {
+	display: block;
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 500px;
+	border: 5px solid red;
+	}
+	
+.game:hover {background-color: lightgray;}
+	
+	h1 {	font-family: Arial; font-size: 55px;
+		font-weight: bold; color: darkgray; 
+		}
+	.hot     {color: gold; text-shadow: 4px 4px 0px maroon; }
+	.cold { color: blue; text-shadow: 2px 2px 0px white; }	
+	h3 { font-family: Arial; font-size: 20px;
+		font-weight: bold; color: red; }
+	form {	color: black; font-weight: 600px; 
+			font-family: courier;	text-shadow: 1px 1px 0px blue;
+		}
+
+#test {
+	color:blue;
+}
+
+
+
