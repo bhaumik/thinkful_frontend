@@ -1,0 +1,197 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title>Thinkful | Test Driven Development</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="test_driven_development.css">
+		<script type="text/javascript" src="//use.typekit.net/fht8tcu.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
+		<!-- 
+		<base href="/learn/test-driven-development/" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/register/static/chosen.jquery.js"></script>
+		<script src="http://code.angularjs.org/1.1.5/angular.js"></script>
+		<script src="/learn/static/js/guideTemplate.js"></script> 
+		-->
+	</head> 
+	<body>
+		<!-- <div class="navigation">
+			<div class="navigation-inner">
+				<div class="navigation-libary"><a href="/">Library
+				</div>
+				<div class="navigation-guide">Test Driven Development
+				</div>
+				<div class="social container">
+					<div class="fb-like">LIKE</div>
+					<div class="twitter">TWEET</div>
+				</div>
+			</div>
+		-->
+		</div>
+		<div id="intro-container">
+			<div id="intro-text">
+				<div id="intro-title">
+					<p>Test</p>
+					<p>Driven</p>
+					<p>Development</p>
+				</div>
+				<div id="intro-author">
+					<p>WRITTEN BY PAUL J KRAUSE</p>
+				</div>
+				<div id="intro-location">
+					<p>DEPARTMENT OF COMPUTING</p>
+					<p>SURREY UNIVERSITY, UK</p>
+				</div>
+			</div>
+			<div id="intro-pic">
+				<img src="Tdd_circle.png">
+				<!-- <div id="intro-pic-shadow">
+					<img src="Tdd_circle.png">
+				</div>  -->
+			</div>
+		</div>	
+		<div id="main-container">
+			<div id="main-nav">
+				<ul>
+					<li class="highlight">Writing Test Cases For your Code</li>
+					<li>Start Small</li>
+					<li>Write FIRE-y Tests</li>
+					<li>Test Continuously</li>
+					<li>Scaling Out Your Process</li>
+					<li>Popular Tools</li>
+					<li>Conclusion</li>
+					<li>Glossary</li>
+				</ul>
+			</div>
+
+			<div id="main-center">
+				<div class="bestpractices">
+					<div class="main-title">Writing Test Cases For Your Code</div>
+						<p class="main-text">As a principal scientist at Philips Research Laboratories, I spent many years teaching engineers how to write good requirements for large-scale systems. One thing I always drive home is that a good requirement should be technologically achievable and testable. Taking this a step further, one way of ensuring that the latter quality is obtained is to write your requirements as executable test cases.</p>
+						<p class="main-text">This is what TDD is all about. You write your test case first to ensure you know what is needed. After you have done the coding, you execute the test case against your code.</p>
+						<p class="main-text">There are some very strong opinions about what you must do if you “do” test driven development. I will say up front that, unless you’re working in a domain where a regulatory framework mandates certain activities, there are no “musts” in software engineering. There are some good things to try, and there are also some practices that are just plain stupid in certain contexts. But in general, it takes time and experience to mold, or evolve, a way of working that suits you. Test-driven development (TDD) contains some good things to try.</p>
+						<p class="main-text">So what does that look like in practice?</p>
+						<p class="main-text">You first need confidence that your test case is coherent and that the environment you are working with is setup correctly to support the test case. So, after you’ve written the test case — but before you write any code — execute the test case to make sure it fails cleanly. This also checks that you are about to code for a new requirement. If the test passes, then your work item has already been covered.</p>
+						<p class="main-text">Now you start coding, and you do just enough (I’ll say more on what this means later) to enable the test to pass. </p>
+						<p class="main-text">Now it’s time to reflect on our code base. We have produced more code, but we may have introduced some duplication in our code base. Alternatively, we might spot that we could satisfy two or more test cases through a more generalized solution. So, at this point we might want to refactor the code base, and then run all our tests again to make sure everything still works.</p>
+						<p class="main-text">
+						In a sense, the final software design emerges from repeated red, green, refactor cycles. (But you might not want to rely on this as the sole input into the design process!).  </p>
+						<p class="main-text">
+						That’s TDD in a nutshell. Let’s start to explore some of the issues more deeply.</p>
+				</div>
+				<!-- 
+				<div class="bestpractices">
+					<h2 class="main-title">Start Small</div>
+						<p class="maintext">
+						</p>
+				</div>
+				<div class="bestpractices">
+					<h2 class="main-title">Write FIRE-y Tests</div>
+						<p class="maintext">
+						</p>
+				</div>
+				<div class="bestpractices">
+					<h2 class="main-title">Test Continuously</div>
+						<p class="maintext">
+						</p>
+				</div>
+				<div class="bestpractices">
+					<h2 class="main-title">Scaling Out Your Process</div>
+						<p class="maintext">
+						</p>
+				</div>
+				<div class="bestpractices">
+					<h2 class="main-title">Popular Tools</div>
+						<table>
+							<tr>
+								<th>Tool</th>
+								<th>Use Case</th>
+								<th>Languages Supported</th>
+							</tr>
+							<tr>
+								<td>Jasmine</td>
+								<td>A TDD tool that enables you to express your test cases as behaviours in a similar way to RSpec.</td>
+								<td>JavaScript</td>
+							</tr>
+							<tr>
+								<td>Karma</td>
+								<td>Enables you to execute your test cases in the browser, with extensive cross-browser support.</td>
+								<td>JavaScript</td>
+							</tr>
+							<tr>
+								<td>Autotest</td>
+								<td>Continuous Testing</td>
+								<td>JavaScript</td>
+							</tr>
+							<tr>
+								<td>RSpec</td>
+								<td>Enables you to express Unit tests in terms of required behaviours. Started the move to Behaviour Driven Development.</td>
+								<td>Ruby primarily but can be set up for other languages.</td>
+							</tr>
+							<tr>
+								<td>Cucumber</td>
+								<td>Cumcumber is intended for writing system level tests/behaviours.</td>
+								<td>Ruby primarily but can set up for languages</td>
+							</tr>
+							<tr>
+								<td>MightyMouse</td>
+								<td>Continuous Testing</td>
+								<td>.Net</td>
+							</tr>
+							<tr>
+								<td>Jenkins</td>
+								<td>Continuous Integration - you can use this to set up support for a range of processes in your development environment, not just continuous testing and TDD.</td>
+								<td>Java initially but now has quite comprehensive language support.</td>
+							</tr>
+							<tr>
+								<td>TeamCity</td>
+								<td>Continuous Integration. Although this is a commercial offering, it does have a zero cost option for limited usage.</td>
+								<td>Comprehensive.</td>
+							</tr>
+						</table>
+					<div id="table-text">
+						<p>This table summarizes the tools that have been mentioned here. It is not a comprehensive list, but I believe it covers the most popular tools (and "popular" is the right word - their respective users love them).
+						</p>
+					</div>
+				</div>
+				<div class="bestpractices">
+					<h2 class="main-title">Conclusion</div>
+						<p class="maintext">
+						</p>
+				</div>
+				<div class="bestpractices">
+					<h2 class="main-title">Glossary</div>
+						<h4 class="sub-title">API</h4>
+							<p class="sub-text"> API stands for Application Programming Interface. It basically specifies how one piece of software connects to another piece. One of the arts of good software design is to make these interfaces as clean and well specified as possible (“if you give me this I will send you that back in return”). See below for how APIs relate to Object Oriented Programming (OOP).</p>
+						<h4 class="sub-title">Assertions</h4>
+							<p class="sub-text">Assertions are simple statements that can be either true or false. Whe
+							n we make an assertion at the end of a test case, we expect the assertion to be true. Suppose I am writing a test for the login functionality of a web application. I might use my own credentials to set up the test case for a successful login. The body of the test case would step through the login process. At the end of the test case, I could include the assertion:
+							Welcome screen should display “Welcome back Paul Krause”
+							This is the pass/fail condition of the test case. </p>
+						<h4 class="sub-title">Configuration Management (CM)</h4>
+							<p class="sub-text">We’ve all done this - after two weeks of editing a document, you come back from a weekend away, look at your computer and think “Which of those files was the last version I was working on?”. Perhaps in an absent minded moment you saved ttcopies into different folders. Some change you thought was in the latest version isn’t there anymore, and you can’t find a version with that important paragraph anywhere! With a software project, it is even more important to have a process for handling changes systematically - you have multiple files, often being handled by many different engineers. Oh dear, I said there were no musts in software engineering but here we have another must. You should have a process to make sure that you can always pull out a consistent configuration of your software under development. For large projects, a full scale CM process can get quite scary. But if you are working on your own or in a small team you can get off to a good start by systematically using a version control system such as Git.</p>
+						<h4 class="sub-title">Mocking</h4>
+							<p class="sub-text"></p>
+						<h4 class="sub-title">Network</h4>
+							<p class="sub-text"></p>
+						<h4 class="sub-title">Object-oriented Programming (OOP)</h4>
+							<p class="sub-text"></p>
+						<h4 class="sub-title">Refactoring</h4>
+							<p class="sub-text"></p>
+						<h4 class="sub-title">Requirements</h4>
+							<p class="sub-text"></p>
+						<h4 class="sub-title">Software Design</h4>
+							<p class="sub-text"></p>
+						<h4 class="sub-title">Threading</h4>
+							<p class="sub-text"></p>
+				</div>
+			-->
+			</div>
+		</div>
+		<!-- 
+		<div id="help">
+			<p>Need Some Help?</p>
+			<p>Check us out at Thinkful.com</p> -->
+		</div>
+	</body>
+</html>
