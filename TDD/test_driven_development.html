@@ -15,7 +15,8 @@
 		-->
 	</head> 
 	<body>
-		<!-- <div class="navigation">
+		<!--
+		<div class="navigation">
 			<div class="navigation-inner">
 				<div class="navigation-libary"><a href="/">Library
 				</div>
@@ -26,8 +27,8 @@
 					<div class="twitter">TWEET</div>
 				</div>
 			</div>
-		-->
 		</div>
+		-->
 		<div id="intro-container">
 			<div id="intro-text">
 				<div id="intro-title">
@@ -63,45 +64,95 @@
 					<li>Glossary</li>
 				</ul>
 			</div>
-
 			<div id="main-center">
+			<!--
 				<div class="bestpractices">
-					<div class="main-title">Writing Test Cases For Your Code</div>
+					<h2 class="main-title">Writing Test Cases For Your Code</div>
 						<p class="main-text">As a principal scientist at Philips Research Laboratories, I spent many years teaching engineers how to write good requirements for large-scale systems. One thing I always drive home is that a good requirement should be technologically achievable and testable. Taking this a step further, one way of ensuring that the latter quality is obtained is to write your requirements as executable test cases.</p>
 						<p class="main-text">This is what TDD is all about. You write your test case first to ensure you know what is needed. After you have done the coding, you execute the test case against your code.</p>
-						<p class="main-text">There are some very strong opinions about what you must do if you “do” test driven development. I will say up front that, unless you’re working in a domain where a regulatory framework mandates certain activities, there are no “musts” in software engineering. There are some good things to try, and there are also some practices that are just plain stupid in certain contexts. But in general, it takes time and experience to mold, or evolve, a way of working that suits you. Test-driven development (TDD) contains some good things to try.</p>
+						<p class="main-text">There are some very strong opinions about what you must do if you "do" test driven development. I will say up front that, unless you're working in a domain where a regulatory framework mandates certain activities, there are no "musts" in software engineering. There are some good things to try, and there are also some practices that are just plain stupid in certain contexts. But in general, it takes time and experience to mold, or evolve, a way of working that suits you. Test-driven development (TDD) contains some good things to try.</p>
 						<p class="main-text">So what does that look like in practice?</p>
-						<p class="main-text">You first need confidence that your test case is coherent and that the environment you are working with is setup correctly to support the test case. So, after you’ve written the test case — but before you write any code — execute the test case to make sure it fails cleanly. This also checks that you are about to code for a new requirement. If the test passes, then your work item has already been covered.</p>
-						<p class="main-text">Now you start coding, and you do just enough (I’ll say more on what this means later) to enable the test to pass. </p>
-						<p class="main-text">Now it’s time to reflect on our code base. We have produced more code, but we may have introduced some duplication in our code base. Alternatively, we might spot that we could satisfy two or more test cases through a more generalized solution. So, at this point we might want to refactor the code base, and then run all our tests again to make sure everything still works.</p>
+						<p class="main-text">You first need confidence that your test case is coherent and that the environment you are working with is setup correctly to support the test case. So, after you've written the test case - but before you write any code - execute the test case to make sure it <span class="red">fails</span> cleanly. This also checks that you are about to code for a new requirement. If the test passes, then your work item has already been covered.</p>
+						<p class="main-text">Now you start coding, and you do just enough (I'll say more on what this means later) to enable the test to pass. </p>
+						<p class="main-text">Now it's time to reflect on our code base. We have produced more code, but we may have introduced some duplication in our code base. Alternatively, we might spot that we could satisfy two or more test cases through a more generalized solution. So, at this point we might want to <span class="blue">refactor</span> the code base, and then run all our tests again to make sure everything still works.</p>
 						<p class="main-text">
-						In a sense, the final software design emerges from repeated red, green, refactor cycles. (But you might not want to rely on this as the sole input into the design process!).  </p>
+						In a sense, the final software design emerges from repeated <span class="red">red</span>, <span class="green">green</span>, <span class="blue">refactor</span> cycles. (But you might not want to rely on this as the sole input into the design process!).</p>
 						<p class="main-text">
-						That’s TDD in a nutshell. Let’s start to explore some of the issues more deeply.</p>
+						That's TDD in a nutshell. Let's start to explore some of the issues more deeply.</p>
 				</div>
-				<!-- 
 				<div class="bestpractices">
 					<h2 class="main-title">Start Small</div>
-						<p class="maintext">
-						</p>
+						<p class="main-text">In the late 1990s, I was commissioned by Philips Consumer Electronics to set up a test automation environment for their mainstream TV product lines. Once everything was working stably, I left them alone for a few weeks while the test team built up experience with it. When I came back, their most experienced architect had put a halt to development while the software team resolved a major issue. This was a timely arrival. A quick look at the test case that had 
+						"discovered" the issue showed that it was horrendously complicated. The "problem" was that it was unintentionally exercising parts of the software stack that had not yet been checked into configuration management.</p>
+						<p class="main-text">When it comes to testing, start with baby steps.</p>
+						<p class="main-text">That way you know that what is being tested is what has just been developed. This is one exception to the "no musts" rule: unless you have a very good reason to trust your basic building blocks, you must start your testing journey with unit tests.</p>
+						<p class="main-text">The judgement comes in identifying (for you and your development team) precisely what constitutes a "unit".</p>
+						<p class="main-text">Don't expect to find a consensus on this. My take is that a unit is the smallest chunk of functionality that has a public API. So, if we're talking object-orientation with Java, Python, Ruby, JavaScript[1], a unit is a class. And your unit tests will go no deeper than the public methods, the public API, of those classes. If you don't feel confident in this then you are not doing object-oriented programming (OOP) - if it behaves like a duck, then it is a duck and you should not need to poke inside it. That is my take. I can defend it, but you should also continue to discuss this with your friends!</p>
+						<p class="main-text">Think about the size of your baby steps. In Test-Driven Development by Example, Kent Beck provides a very lucid illustration of TDD during which the design of a Money class emerges as test cases are added. Given your level of experience with OOP, you may not choose to proceed with what are essentially micro steps. TDD is not the only tool to use for creating a good domain model and you will almost certainly proceed faster, especially if working in a team of more than two, if you pull in some sound OOP design right from the start.</p>
 				</div>
 				<div class="bestpractices">
 					<h2 class="main-title">Write FIRE-y Tests</div>
-						<p class="maintext">
+						<p class="main-text">If your tests take more than two seconds to run, you'll start skipping test cycles. So you are going to need to "mock out" some of the dependencies (database accesses, remote service invocations, and so forth) to ensure your tests run Fast.
+						</p>
+						<p class="main-text">Within two weeks of writing a class, you will have moved on and forgotten the reasons for some of its internal details. If you now run a test case that is written at a low level coding level and it fails, the system will generate a cryptic message that may take awhile to interpret. But if your test cases provide an Informative description of what the class is intended to do, then you will be able to diagnose the fault quickly.
+						</p>
+						<p class="main-text">You also want to be sure that if a test fails, it really is because someone has changed a behavior that your team thought was valuable. Make sure that your test case contains a clear assertion of a property that should hold if the conditions set up in the test case are valid. Test cases should be a Reliable indicator of correct or bad behavior - you do not want fragile test cases that break if someone makes a small internal change to a data structure. Reliability also means staying away from the Network, and understanding threading behavior.
+						</p>
+						<p class="main-text">And finally, strive to make your test sets provide an Exhaustive coverage of the behaviors of your software units. Don't just test the fair weather behavior - test the boundaries, test the failure conditions. If you can't see if it is behaving like a duck and only like a duck (in all the ways you can think of) then you don't know it is a duck.
+						</p>
+						<p class="main-text">So in summary, to be aneffective TDDer, you need to work with FIRE - you need to know how to make your tests Fast, Informative, Reliable and Exhaustive.
 						</p>
 				</div>
 				<div class="bestpractices">
 					<h2 class="main-title">Test Continuously</div>
-						<p class="maintext">
+						<p class="main-text">One thing we are heading for is a rapid feedback process where every time we make a change we (a) test that what we just did works, and (b) test that we haven't broken anything that was already working. 
 						</p>
+						<p class="main-text">You need tools to do that. The tools you have available depend on your target language. Here are some tools that are easy to get up and running. 
+						</p>
+						<ul class="main-text">
+							<li>
+								<a href="http://pivotal.github.io/jasmine/">Jasmine:</a> Use this is you're working with JavaScript.
+							</li>
+							<li>
+								<a href="http://karma-runner.github.io">Karma:</a> Test your JavaScript within browsers.
+							</li>
+							<li>
+								<a href="https://github.com/grosser/autotest">Autotest:</a> For Ruby fans
+							</li>
+							<li>
+								<a href="http://continuoustests.com">Mighty Mouse:</a> For. Neters
+							</li>
+							<li>
+								<a href="http://jenkins-ci.org">Jenkins:</a> For a more comprehensive solution try this. It's open source. 
+							</li>
+							<li>
+								<a href="http://www.jetbrains.com/teamcity/">TeamCity:</a> This is good for small projects
+							</li>
+						</ul>
 				</div>
 				<div class="bestpractices">
 					<h2 class="main-title">Scaling Out Your Process</div>
-						<p class="maintext">
+						<p class="main-text">Your process should not stop at specifying and testing behaviors of units of your code base. You need to check that required behaviors are delivered as you integrate components, and that system level functionality is provided correctly. Looking earlier in the process, you may also want to automate some static analysis just to make sure none of your failures arise because of simple syntax errors.
+						</p>
+						<p class="main-text">Let's deal with the last issue first. If you are coding JavaScript, then you can integrate <a href="http://www.sublimetext.com">JS Lint</a> into a Continuous Testing environment to handle this very effectively. In general, though, you can get instant feedback if you use a programmers editor such as <a href="http://www.sublimetext.com">Sublime Text</a>, and of course syntax checking comes built in with any Integrated Development Environment (IDE) if you want to go heavy-weight. (Just as an aside, I use Sublime Text and a small set of tools I can get at from the command line instead of IDEs). 
+						</p>
+						<p class="main-text">Now let's scale out the process. TDD is supposed to help you evolve a good design for the total product, not just its components. So as well as specifying and testing behaviors at the Unit level, you should also be specifying the behaviors of larger scale scenarios. You should still follow the red, green, refactor cycle with these. However, there is a refinement. Once you have specified a scenario and then generated a fail with its first execution, you need to drop down to a series of <span class="red">red</span>, <span class="green">green</span>, <span class="blue">refactor</span> cycles as you refine the design of the units that are needed to deliver the total scenario. Once you have green lights from all of these, you can go back to re-running the high-level scenario.
+						</p>
+						<p class="main-text">What tools should you use for this? 
+						</p>
+						<ul class="main-text">
+							<li><a href="http://pragprog.com/book/achbd/the-rspec-book">RSpec:</a> This lets you use the syntax of behaviors to specify your test cases.
+							</li>
+							<li><a href="http://cukes.info">Cucumber:</a> This uses a syntax that is very similar to that of templates that have been in use for specifying system level Use Cases for many years.
+							</li>
+						</ul>
+						<p class="main-text">Both these tools were developed with the Ruby community specifically in mind, but they can be used for other target languages.
 						</p>
 				</div>
 				<div class="bestpractices">
 					<h2 class="main-title">Popular Tools</div>
+						<p class="main-text">This table summarizes the tools that have been mentioned here. It is not a comprehensive list, but I believe it covers the most popular tools (and "popular" is the right word - their respective users love them).
+						</p>
 						<table>
 							<tr>
 								<th>Tool</th>
@@ -149,49 +200,67 @@
 								<td>Comprehensive.</td>
 							</tr>
 						</table>
-					<div id="table-text">
-						<p>This table summarizes the tools that have been mentioned here. It is not a comprehensive list, but I believe it covers the most popular tools (and "popular" is the right word - their respective users love them).
-						</p>
-					</div>
 				</div>
 				<div class="bestpractices">
 					<h2 class="main-title">Conclusion</div>
-						<p class="maintext">
+						<p class="main-text">At heart TDD involves a simple cycle of: build a <span class="red">failing</span> test; code just enough to make the test pass; refactor to <span class="blue">remove</span> duplication. We also need to include this in a continuous testing framework so that as well as testing that what we just did works, we also test that we haven't broken anything that was already working.
+						</p>
+						<p class="main-text">Test Driven Development provides a method for developing software that offers strong guarantees that the final delivered software meets customer needs. It's still evolving as a method. Increasingly expressive tools, such as RSpec and Cucumber, are emerging that enable you to specify the behavior that is needed, and run those specifications as test cases against the implemented software. These are leading to a maturing of TDD practices, together with the possibility of a change in terminology (Behavior Driven Development - "meet the new boss, same as the old boss"). 
+						</p>
+						<p class="main-text">The claim of TDD is that if you follow this method then good software design will emerge. Oh, if life were so simple! Take a look at the entries in the glossary for a little more discussion on this, but do be aware that at the very least you need to have a strong command of good design practice before this will happen. 
 						</p>
 				</div>
+			-->
 				<div class="bestpractices">
 					<h2 class="main-title">Glossary</div>
-						<h4 class="sub-title">API</h4>
-							<p class="sub-text"> API stands for Application Programming Interface. It basically specifies how one piece of software connects to another piece. One of the arts of good software design is to make these interfaces as clean and well specified as possible (“if you give me this I will send you that back in return”). See below for how APIs relate to Object Oriented Programming (OOP).</p>
-						<h4 class="sub-title">Assertions</h4>
-							<p class="sub-text">Assertions are simple statements that can be either true or false. Whe
-							n we make an assertion at the end of a test case, we expect the assertion to be true. Suppose I am writing a test for the login functionality of a web application. I might use my own credentials to set up the test case for a successful login. The body of the test case would step through the login process. At the end of the test case, I could include the assertion:
-							Welcome screen should display “Welcome back Paul Krause”
-							This is the pass/fail condition of the test case. </p>
-						<h4 class="sub-title">Configuration Management (CM)</h4>
-							<p class="sub-text">We’ve all done this - after two weeks of editing a document, you come back from a weekend away, look at your computer and think “Which of those files was the last version I was working on?”. Perhaps in an absent minded moment you saved ttcopies into different folders. Some change you thought was in the latest version isn’t there anymore, and you can’t find a version with that important paragraph anywhere! With a software project, it is even more important to have a process for handling changes systematically - you have multiple files, often being handled by many different engineers. Oh dear, I said there were no musts in software engineering but here we have another must. You should have a process to make sure that you can always pull out a consistent configuration of your software under development. For large projects, a full scale CM process can get quite scary. But if you are working on your own or in a small team you can get off to a good start by systematically using a version control system such as Git.</p>
-						<h4 class="sub-title">Mocking</h4>
-							<p class="sub-text"></p>
-						<h4 class="sub-title">Network</h4>
-							<p class="sub-text"></p>
-						<h4 class="sub-title">Object-oriented Programming (OOP)</h4>
-							<p class="sub-text"></p>
-						<h4 class="sub-title">Refactoring</h4>
-							<p class="sub-text"></p>
-						<h4 class="sub-title">Requirements</h4>
-							<p class="sub-text"></p>
-						<h4 class="sub-title">Software Design</h4>
-							<p class="sub-text"></p>
-						<h4 class="sub-title">Threading</h4>
-							<p class="sub-text"></p>
+						<div class="gloss">
+							<h4 class="gloss-title">API</h4>
+							<p class="gloss-text"> API stands for 	Application Programming Interface. It basically specifies how one piece of software connects to another piece. One of the arts of good software design is to make these interfaces as clean and well specified as possible ("if you give me this I will send you that back in return"). See below for how APIs relate to Object Oriented Programming (OOP).</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Assertions</h4>
+							<p class="gloss-text">Assertions are simple statements that can be either true or false. When we make an assertion at the end of a test case, we expect the assertion to be true. Suppose I am writing a test for the login functionality of a web application. I might use my own credentials to set up the test case for a successful login. The body of the test case would step through the login process. At the end of the test case, I could include the assertion: Welcome screen should display "Welcome back Paul Krause" This is the pass/fail condition of the test case. </p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Configuration Management (CM)</h4>
+							<p class="gloss-text">We've all done this - after two weeks of editing a document, you come back from a weekend away, look at your computer and think "Which of those files was the last version I was working on?". Perhaps in an absent minded moment you saved ttcopies into different folders. Some change you thought was in the latest version isn't there anymore, and you can't find a version with that important paragraph anywhere! With a software project, it is even more important to have a process for handling changes systematically - you have multiple files, often being handled by many different engineers. Oh dear, I said there were no musts in software engineering but here we have another must. You should have a process to make sure that you can always pull out a consistent configuration of your software under development. For large projects, a full scale CM process can get quite scary. But if you are working on your own or in a small team you can get off to a good start by systematically using a version control system such as Git.</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Mocking</h4>
+							<p class="gloss-text">Don't mock the programmer, mock the program. No, I'm not using the word in the sense of "taunting" or "ridiculing" but in the sense of "imitating". Suppose I have just built some software that downloads some data from a social networking site and then processes it in some way. Now I want to make my tests FIRE-y, but I have a problem with both Fast and Reliable. First, the execution speed of my tests is going to be dominated by the time it takes to download data from the remote site. Second, my tests will fail if the remote site is unavailable for some reason, or if the internet connection is down. So what I do is build a "mockup" of the social networking site that executes on the same computer as my test case. This can be quite simple - just a file with some data in it (perhaps pre-fetched from the remote site). Now I am back in control of making my test cases FIRE-y. </p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Network</h4>
+							<p class="gloss-text">This is a generic term, and almost mythical beast that still has a whole load of issues; latency and unavailability being the two that most frequently trip you up when you are trying to test a software product. Generally, a Network is whatever links your program to other programs running on remote computers (and remember that computers can be found in all sorts of devices). So, depending on your application, this could be a Local Area Network, a Body Area Network, the Internet and World-Wide Web, an Intranet, a Mobile Network, and so forth. Network technology is amazing, but the basic laws of physics mean that sending data over any network takes time. In addition, someone can switch off the network, your connection to it, or the remote application you are trying to connect to at any time. So, when you are testing the basic functionality of your program, always "mock out" the network. Of course, you will want to test your program integrates with the network at some point. For the above reasons these are not good tests to include in an autotest cycle, but for goodness sake don't forget to include them!</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Object-oriented Programming (OOP)</h4>
+							<p class="gloss-text">Objects pervade the world. My Office has a Table, a Chair and masses and masses of Books; it is very much my Home. Sometimes I (a Person) am in my Office and sometimes I am not. All of these things are objects, and they are all similar to other things in some way. So we tend to associate individual objects with a class that acts as a stereotype for all its associated objects. Convention has it that we capitalize the class name "Office", but use lower case for the identifier of an instance of that class - an object ("bb3202" identifies my office). Classes have properties, and when we create an instance of a class we will need to instantiate these properties. So, for example, a Book has author, title, publisher as properties (and maybe others too). For one of the Book objects in my room: author = "Matthew Jackson"; title = "Social and Economic Networks"; publisher = "Princeton". These properties of a Book object are immutable (cannot be changed), but sometimes properties can be changed. An Office, for example, has a property occupied, which can be either true or false. The API of a Class enables another class instance to check the values of all properties, and perhaps change the value of any mutable properties.</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Refactoring</h4>
+							<p class="gloss-text">Martin Fowler, who wrote the definitive text on Refactoring, describes it as "changing a software system in such a way that it does not alter the external behaviour of the code yet improves its internal structure". The fact that there is a text on refactoring gives us a clue that my statement that after your test has passed you refactor the code, just might be a little glib. The general idea is that there are some standard techniques that can be applied to code to "tidy it up" (make it more succinct, remove duplication, and generally help you achieve qualities in the codebase that may be important to you) without there being a major risk of introducing bugs. But it does take experience to know what to do, so recognizing the word "refactoring" is just the start of a long journey.</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Requirements</h4>
+							<p class="gloss-text">When you want a new car, you don't just walk into a showroom and say: "I need a new car, what have you got?". At least if you are sensible, you will spend some time (possibly in discussion with your family or other "stakeholders") about what you want the car to do for you (it must cost less than a certain amount; it must have space for five people; the fuel economy must be within a certain range; and so forth).  These are the requirements for your new car. Similarly with a new software product, you need to consult all the stakeholders to identify and explicate all the requirements for it. This is often a challenge as it can be hard to get a clear view from many of the stakeholders as to what they really want. The iterative, incremental methods associated with TDD and agile help here. Get something working first and then show it to the customers/stakeholders. That will get them thinking of new things ("Oh, if you can get it to do that for Purchasing, then how about you get it to do this for Finance").</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Software Design</h4>
+							<p class="gloss-text">This is another big, big topic. A design is usually some form of an abstraction of a thing that is produced before you actually make the thing. This can be a drawing, a scale model, a series of diagrams, some form of computer simulation, or possibly a combination of these. The design does two things. First, it enables a check to be made that the product is fit for purpose, before committing to the expense of making one. Second, it acts as a blueprint for those involved in making the real product. As software engineers, we often work in a similar way, perhaps using a standard notation such as the Unified Modelling Language (UML). However, with TDD in its purest form, the design "emerges" from repeated cycles of the red, green, refactor cycle. This is perhaps a little bit strange as the only representation of the design is the code itself. You have to trust the process, but it is a bit like saying that if you start off with a box of bits and work in small steps you can make a Ferrari. Keep an open mind, but in my experience you can't do good TDD unless you also build up your experience in object oriented analysis and design. I recommend reading Executable UML: How to Build Class Models by Leon Starr, but it is hard to get hold of now which is a pity.</p>
+						</div>
+						<div class="gloss">
+							<h4 class="gloss-title">Threading</h4>
+							<p class="gloss-text">You don't want to go here just now! This can get really heavy weight, but it is important to be aware of the issue. Sometimes parts of your software can run independently. A classic example of this is when two or more users are logged into your web site at the same time. You definitely do not want the interaction of User1 to be held up while the computer is waiting for User2 to come back from a coffee break and finish a task. So, the processing of the interaction with your software and User1 will run on a different thread to the processing of the interaction with User2. That way, if there is a hold up with one activity, the other one can continue. It all gets a bit hairy because a software process can contain multiple threads and all threads have access to the data in a program. Bad things can happen if two threads try to access and change the same data at the same time. But as I said, you don't want to go there just now!</p>
+						</div>
 				</div>
-			-->
 			</div>
 		</div>
 		<!-- 
 		<div id="help">
 			<p>Need Some Help?</p>
-			<p>Check us out at Thinkful.com</p> -->
+			<p>Check us out at Thinkful.com</p> 
 		</div>
+		-->
 	</body>
 </html>
