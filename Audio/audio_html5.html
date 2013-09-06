@@ -8,43 +8,103 @@
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
 	</head>
 	<body>
-		<!--
-		<div class="navigation">
-			<div class="navigation-inner">
-				<div class="navigation-libary"><a href="/">Library
+
+		<div class="banner">
+			<a target="_blank" href="/a/learn?utm_source=tf_audio_html5&utm_medium=tf_top_banner&utm_campaign=tf_guides" style="text-decoration:none;">Interested in Web Development? Learn to Code Faster with a Thinkful Mentor</a>
+		</div>
+
+		<div class="background_1">
+			<div class="container">
+				<div class="audio">
+					<h1>Adding Sound</h1>
+					<h2>Audio in HTML5</h2>
+					<p class="audio-text">HTML5 standardized the way we embed audio in websites with the <a href="">Audio Tag</a>.  The audio tag is used to represent sound content in documents. (Notice that it represents the sound content, while the audio tag is capable of provided audio controls it is not representing them.)</p>
+					<p class="audio-text">There are several easy steps to embed sound using tags and to ensure that the sounds play across multiple browsers. This tutorial should take you 20 minutes. At the end, you'll have audio on your page.</p>
+					<p class="audio-text">Let's begin embedding sound in your site</p>
 				</div>
-				<div class="navigation-guide">Test Driven Development
-				</div>
-				<div class="social container">
-					<div class="fb-like">LIKE</div>
-					<div class="twitter">TWEET</div>
-				</div>
+				<img class"audio_image" src="images/play_button.png" alt="play">
 			</div>
 		</div>
-		-->
-
-		<div class="sound">
-			<h1>Adding Sound</h1>
-			<h2>Audio in HTML5</h2>
-			<p class="main-text">HTML5 standardized the way we embed audio in websites with the <a href="">Audio Tag</a>.  The audio tag is used to represent sound content in documents. (Notice that it represents the sound content, while the audio tag is capable of provided audio controls it is not representing them.)</p>
-			<p class="main-text">There are several easy steps to embed sound using tags and to ensure that the sounds play across multiple browsers. This tutorial should take you 20 minutes. At the end, you’ll have audio on your page.</p>
-			<p class="main-text">Let's begin embedding sound in your site</p>
+		<div class="background_2">
+			<div class="container">
+				<div class="audio_tag">
+					<h3>Audio Tags</h3>
+					<p class="audio-text">Let's walk through how to use it! You can use the Audio tag in any element that accepts embedded content. </p>
+					<code class="orange"> 
+						<audio src="foo.mp3" controls></audio> 
+					</code>
+					<p class="audio-text">Yes, it is that easy to embed sound in your website!  The example above will display a set of native-to-the-browser audio controls that play foo.mp3 when play is clicked. This is supported in all major browsers and back to IE9.</p>
+					<p class="audio-text">Let's take a look at what we are doing:</p>
+					<code class="orange">
+						<audio></audio>
+					</code>
+					<p class="audio-text">The audio tag requires both the opening and closing tags, we will get to what can be placed inside it in a moment. </p>
+					<code class="orange">
+						src="foo.mp3"
+					</code>
+					<p class="audio-text">Just like an image, the audio tag accepts a source attribute, this is the path to your audio file.</p>
+					<code class="orange">
+						controls
+					</code>
+					<p class="audio-text">This optional attribute tells the browser to set up the native audio controls right where we have the audio tags. Without this attribute the represented sound would have no interface and it would be up to you to implement it.</p>
+					<p class="audio-text">There are several more attributes that the audio tag accepts. You can get a good handle on them by reading the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">Mozilla docs for the audio element.</a></p>
+					<p class="audio-text">Moving on, Lets take a look at some of the things that we can put inside the audio tags.</p>
+				</div>	
+				<img class"audio_tag_image" src="images/speaker.png" alt="speaker">
+			</div>
 		</div>
-		<div class="audio_tag">
-			<h3>Audio Tags</h3>
-			<p class="main-text"></p>
+		<div class="background_1">
+			<div class="container">
+				<img class"audio_inside_image" src="images/inside_tag.png" alt="inside_tag">
+				<div class="audio_inside">
+					<h3>What Goes Inside the Audio Tags</h3>
+					<code class="white">
+						<audio controls>
+		 				<source type="audio/mp3" src="foo.mp3">
+		 				<source type="audio/wav" src="foo.wav">
+		 				<p> I'm sorry, your browser does not support the audio tag </p>
+						</audio>
+					</code>
+					<p class="audio-text">Once again, this will display a set of native-to-the-browser audio controls. When clicked, the browser will play foo.mp3 or foo.wav depending on which has better support in the environment.</p>
+				</div>
+			</div>		
 		</div>
-		<div class="inside_tag">
-			<h3>What Goes Inside the Audio Tags</h3>
-			<p class="main-text"></p>
+		<div class="background_2">
+			<div class="container">
+				<div class="audio_source">
+					<h3>Source Tags Inside Audio Tags</h3>
+					<p class="audio-text">Let's dissect this:</p>
+					<code class="orange">
+						<source type="audio/mp3" src="foo.mp3">
+					</code>
+					<p class="audio-text">The source tag is a special HTML5 tag that can be used inside the audio tag and the video tag. We are using two of the source tags attributes, the type attribute, which tells the browser the mime type or what type of file to expect, and the src attribute, which works just like the src attribute we used before on the audio tag.</p>
+					<p class="audio-text">I'm sure you noticed we are using two source tags. Defining your audio sources this way is beneficial because you can define more than one. We do this for browser support - not all browsers support all audio files in the same way. Some prefer and prioritize file types over others. Providing the browser with different options will help your sound run smooth and give you better support over all. </p>
+					<p class="audio-text">You can read more about the source tag on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source">Mozilla Developers Network</a></p>	
+				<img class"audio_source_image" src="images/volume.png" alt="volume">
+			</div>	
 		</div>
-		<div class="source_tag">
-			<h3>Source Tags Inside Audio Tags</h3>
-			<p class="main-text"></p>
-		</div>
-		<div class="incorrect_tag">
-			<h3>Troubleshooting an Incorrect Tag</h3>
-			<p class="main-text"></p>
+		<div class="background_1">
+			<div class="container">
+				<img class"audio_incorrect_image" src="images/music_notes.png" alt="music_notes">
+				<div class="audio_incorrect">
+					<h3>Troubleshooting an Incorrect Tag</h3>
+					<code class="white">
+						<p>I'm sorry.. etc</p>
+					</code>
+					<p class="audio-text">If the above paragraph tag shows up in your browser, it's probably because you're using an older browser that doesn't have support for the audio tag. This paragraph is providing Fallback Content. Being part of the new standard old browsers such as IE8 and IE7 do not support the audio tag and will simply ignore it, but will render any valid HTML inside of the tag correctly.</p>
+					<p class="audio-text">Most HTML can be used as fallback content inside of the audio tag. So why not use the old method of embedding audio inside it so we continue to function on as many browsers as we can? The most common fallback is the embed object</p>
+					<code>
+						<audio controls autoplay>
+			 				<source type="audio/mp3" src="foo.mp3">
+			 				<source type="audio/wav" src="foo.wav">
+			 				<embed src="foo.mp3" type="audio/mp3" width="300" height="100" />
+						</audio>
+					</code>
+					<p class="audio-text">Awesome, it may not look as pretty as the new and native HTML5 standard, but it works and the music still plays in older browsers!</p>
+					<p class="audio-text">The embed tag is outside the scope of this post however its syntax should look fairly familiar. There is the same src and type attribute and the width and height should be rather self explanatory as well.  For more information check out the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed">embed tag on MDN</a></p>
+					<p class="audio-text">We now have a functioning player back to at least Ie7. This will conclude our exploration of the audio object. There is a lot more to learn about audio on the web, but this should be a good start.</p>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

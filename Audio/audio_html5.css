@@ -49,3 +49,94 @@ table {
 
 /* Audio in HTML5 */
 
+.banner {
+	padding: 15px;
+	text-decoration: none;
+	background-color: #66b6cd;
+	color: #eee;
+	font: 600 1.3em/1 "proxima-nova",sans-serif;
+	text-align: center;
+}
+
+.background_1 {
+	background-color: #fff;
+	border: 1px solid;
+}
+.background_2 {
+	background-color: #eee;
+	border: 1px solid;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+
+}
+
+.audio {
+	width: 48%;
+	border: 1px solid;
+}
+.audio_image {
+	z-index: 1;
+	float: right;
+	border: 1px solid;
+}
+.audio_tag {
+	position: relative;
+	z-index: 5;
+	width: 500px;
+}
+.audio_tag_image {
+	position: relative;
+	z-index: 1;
+}
+.audio_inside {
+	width: 48%;
+}
+.audio_inside_image {
+
+}
+.audio_source {
+	width: 48%;
+}
+.audio_source_image {
+
+}
+.audio_incorrect {
+	width: 48%;
+}
+.audio_incorrect_image {
+
+}
+
+h1 {
+	color: #444;
+	font-size: 110px;
+	font-family: "adelle", "Adelle", "Merriweather", Georgia, serif;
+}
+
+h2 {
+	color: #66b6cd;
+	font-size: 44px;
+	font-family: "adelle", "Adelle", "Merriweather", Georgia, serif;
+}
+
+h3 {
+	color: #444;
+	font-size: 34px;
+	font-family: "adelle", "Adelle", "Merriweather", Georgia, serif;
+
+}
+
+.audio-text {
+	font-family: "Helvetica", "proxima-nova", "source-sans-pro", Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.4em;
+	color: #444;
+}
+
+.container p {
+	padding-top: 20px;
+}
+

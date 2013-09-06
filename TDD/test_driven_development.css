@@ -52,6 +52,15 @@ table {
 body {
 	background-color: #eee;
 }
+.banner {
+	padding: 15px;
+	text-decoration: none;
+	background-color: #66b6cd;
+	color: #eee;
+	font: 600 1.3em/1 "proxima-nova",sans-serif;
+	text-align: center;
+}
+
 
 #intro-container {
 	margin: 0 auto;
@@ -98,38 +107,48 @@ body {
 	margin-bottom: 5px;
 }
 
+#social {
+	margin-top: 30px;
+}
+
 #intro-pic  {
 	position: relative;
 	z-index: 5;
 	float: left;
 }
 
-
 #intro-pic-shadow  {
 	position: relative;
 	z-index: 3;
-	opacity: 0.2;
-	margin-top: -797px;
+	opacity: 0.15;
+	margin-top: -626px;
 	margin-left: -10px;
 }
-
 
 #main-container {
 	clear: both;
 	margin: 0 auto;
 	margin-left: 50px;
-	width: 83%;
-	height: 900px;
+	width: 835px;
+	height: 100%;
+}
+
+#main-nav-wrapper {
+	position: absolute;
+	left:50px;
 }
 
 #main-nav {
+	position: relative;
 	display: block;
-	float: left;
 	height: 100%;
-	width: 181px;
-	margin-top: 25px;
+	top: 25px;
 	font-family: "Helvetica", "proxima-nova", "source-sans-pro", Arial, sans-serif;
 	font-size: 13px;
+}
+
+#main-nav.fixed {
+	position: fixed;
 }
 
 #main-nav .highlight {
@@ -138,7 +157,7 @@ body {
 	font-weight: 400;
 }
 #main-nav ul {
-	width: 120px;
+	width: 70%;
 }
 #main-nav li {
 	color: #999999;
@@ -148,9 +167,9 @@ body {
 }
 
 #main-center {
-	float: left;
+	margin-left: 200px;
 	height: 100%;
-	width: 750px;
+	width: 74%;
 }
 
 .main-title {
@@ -215,7 +234,7 @@ table th {
 }
 .gloss-title {
 	font-family: "proxima-nova", "source-sans-pro", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-	font-size: 18px;
+	font-size: 20px;
 	color: #444444;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -224,7 +243,7 @@ table th {
 
 .gloss-text {
 	font-family: "Helvetica", "Helvetica Neue", "proxima-nova", "source-sans-pro", "Source Sans Pro", Arial, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	color: #999999;
 	font-weight: 100;
 	line-height: 1.5em;

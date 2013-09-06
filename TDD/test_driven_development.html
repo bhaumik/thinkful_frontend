@@ -4,31 +4,43 @@
 		<title>Thinkful | Test Driven Development</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="test_driven_development.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<!--<script type="text/javascript" href="test_driven_development.js"></script>
 		<script type="text/javascript" src="//use.typekit.net/fht8tcu.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
-		<!-- 
-		<base href="/learn/test-driven-development/" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="/register/static/chosen.jquery.js"></script>
-		<script src="http://code.angularjs.org/1.1.5/angular.js"></script>
-		<script src="/learn/static/js/guideTemplate.js"></script> 
-		-->
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
+		<script>
+		$(document).ready(function(){
+
+	console.log('hello');
+
+	$('a').click(function(){
+		$('html, body').animate({
+			scrollTop: $( $(this).attr('href') ).offset().top
+		}, 500);
+		return false;
+	});
+
+	$(window).scroll(function (){
+	//what the y position of scroll is
+		var y = $(window).scrollTop();
+		//whether that's below the form
+		if (y >= 651){
+			//if so, add the fixed class
+			$('#main-nav').addClass('fixed');
+			}
+		else {
+			//otherwise, leave it
+			$('#main-nav').removeClass('fixed');
+		}
+	});
+
+});
+		</script>
 	</head> 
 	<body>
-		<!--
-		<div class="navigation">
-			<div class="navigation-inner">
-				<div class="navigation-libary"><a href="/">Library
-				</div>
-				<div class="navigation-guide">Test Driven Development
-				</div>
-				<div class="social container">
-					<div class="fb-like">LIKE</div>
-					<div class="twitter">TWEET</div>
-				</div>
-			</div>
+		<div class="banner">
+			<a target="_blank" href="/a/learn?utm_source=tf_test_driven_development&utm_medium=tf_top_banner&utm_campaign=tf_guides" style="text-decoration: none;">Interested in Web Development? Learn to Code Faster with a Thinkful Mentor</a>
 		</div>
-		-->
 		<div id="intro-container">
 			<div id="intro-text">
 				<div id="intro-title">
@@ -43,31 +55,39 @@
 					<p>DEPARTMENT OF COMPUTING</p>
 					<p>SURREY UNIVERSITY, UK</p>
 				</div>
+
+				<div id="social">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="file://localhost/Users/bhaumikpatel/Desktop/Thinkful/pysplash/learn/static/test_driven_development.html" data-text="Test Driven Development" data-via="thinkful">Tweet</a>
+					 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				</div>
 			</div>
+
 			<div id="intro-pic">
-				<img src="Tdd_circle.png">
-				<!-- <div id="intro-pic-shadow">
-					<img src="Tdd_circle.png">
-				</div>  -->
+				<img src="images/Tdd_circle.png">
+				<div id="intro-pic-shadow">
+					<img src="images/Tdd_circle.png">
+				</div> 
 			</div>
 		</div>	
+
 		<div id="main-container">
-			<div id="main-nav">
-				<ul>
-					<li class="highlight">Writing Test Cases For your Code</li>
-					<li>Start Small</li>
-					<li>Write FIRE-y Tests</li>
-					<li>Test Continuously</li>
-					<li>Scaling Out Your Process</li>
-					<li>Popular Tools</li>
-					<li>Conclusion</li>
-					<li>Glossary</li>
-				</ul>
+			<div id="main-nav-wrapper">
+				<div id="main-nav">
+					<ul>
+						<li class="highlight"> <a href="#start_small" id="#start_small">Writing Test Cases For your Code</a></li>
+						<li>Start Small</li>
+						<li>Write FIRE-y Tests</li>
+						<li>Test Continuously</li>
+						<li>Scaling Out Your Process</li>
+						<li>Popular Tools</li>
+						<li>Conclusion</li>
+						<li>Glossary</li>
+					</ul>
+				</div>
 			</div>
 			<div id="main-center">
-			<!--
 				<div class="bestpractices">
-					<h2 class="main-title">Writing Test Cases For Your Code</div>
+					<h2 class="main-title">Writing Test Cases For Your Code</h2>
 						<p class="main-text">As a principal scientist at Philips Research Laboratories, I spent many years teaching engineers how to write good requirements for large-scale systems. One thing I always drive home is that a good requirement should be technologically achievable and testable. Taking this a step further, one way of ensuring that the latter quality is obtained is to write your requirements as executable test cases.</p>
 						<p class="main-text">This is what TDD is all about. You write your test case first to ensure you know what is needed. After you have done the coding, you execute the test case against your code.</p>
 						<p class="main-text">There are some very strong opinions about what you must do if you "do" test driven development. I will say up front that, unless you're working in a domain where a regulatory framework mandates certain activities, there are no "musts" in software engineering. There are some good things to try, and there are also some practices that are just plain stupid in certain contexts. But in general, it takes time and experience to mold, or evolve, a way of working that suits you. Test-driven development (TDD) contains some good things to try.</p>
@@ -80,8 +100,9 @@
 						<p class="main-text">
 						That's TDD in a nutshell. Let's start to explore some of the issues more deeply.</p>
 				</div>
-				<div class="bestpractices">
-					<h2 class="main-title">Start Small</div>
+
+				<div class="bestpractices" id="start_small">
+					<h2 class="main-title">Start Small</h2>
 						<p class="main-text">In the late 1990s, I was commissioned by Philips Consumer Electronics to set up a test automation environment for their mainstream TV product lines. Once everything was working stably, I left them alone for a few weeks while the test team built up experience with it. When I came back, their most experienced architect had put a halt to development while the software team resolved a major issue. This was a timely arrival. A quick look at the test case that had 
 						"discovered" the issue showed that it was horrendously complicated. The "problem" was that it was unintentionally exercising parts of the software stack that had not yet been checked into configuration management.</p>
 						<p class="main-text">When it comes to testing, start with baby steps.</p>
@@ -91,7 +112,7 @@
 						<p class="main-text">Think about the size of your baby steps. In Test-Driven Development by Example, Kent Beck provides a very lucid illustration of TDD during which the design of a Money class emerges as test cases are added. Given your level of experience with OOP, you may not choose to proceed with what are essentially micro steps. TDD is not the only tool to use for creating a good domain model and you will almost certainly proceed faster, especially if working in a team of more than two, if you pull in some sound OOP design right from the start.</p>
 				</div>
 				<div class="bestpractices">
-					<h2 class="main-title">Write FIRE-y Tests</div>
+					<h2 class="main-title">Write FIRE-y Tests</h2>
 						<p class="main-text">If your tests take more than two seconds to run, you'll start skipping test cycles. So you are going to need to "mock out" some of the dependencies (database accesses, remote service invocations, and so forth) to ensure your tests run Fast.
 						</p>
 						<p class="main-text">Within two weeks of writing a class, you will have moved on and forgotten the reasons for some of its internal details. If you now run a test case that is written at a low level coding level and it fails, the system will generate a cryptic message that may take awhile to interpret. But if your test cases provide an Informative description of what the class is intended to do, then you will be able to diagnose the fault quickly.
@@ -104,7 +125,7 @@
 						</p>
 				</div>
 				<div class="bestpractices">
-					<h2 class="main-title">Test Continuously</div>
+					<h2 class="main-title">Test Continuously</h2>
 						<p class="main-text">One thing we are heading for is a rapid feedback process where every time we make a change we (a) test that what we just did works, and (b) test that we haven't broken anything that was already working. 
 						</p>
 						<p class="main-text">You need tools to do that. The tools you have available depend on your target language. Here are some tools that are easy to get up and running. 
@@ -131,7 +152,7 @@
 						</ul>
 				</div>
 				<div class="bestpractices">
-					<h2 class="main-title">Scaling Out Your Process</div>
+					<h2 class="main-title">Scaling Out Your Process</h2>
 						<p class="main-text">Your process should not stop at specifying and testing behaviors of units of your code base. You need to check that required behaviors are delivered as you integrate components, and that system level functionality is provided correctly. Looking earlier in the process, you may also want to automate some static analysis just to make sure none of your failures arise because of simple syntax errors.
 						</p>
 						<p class="main-text">Let's deal with the last issue first. If you are coding JavaScript, then you can integrate <a href="http://www.sublimetext.com">JS Lint</a> into a Continuous Testing environment to handle this very effectively. In general, though, you can get instant feedback if you use a programmers editor such as <a href="http://www.sublimetext.com">Sublime Text</a>, and of course syntax checking comes built in with any Integrated Development Environment (IDE) if you want to go heavy-weight. (Just as an aside, I use Sublime Text and a small set of tools I can get at from the command line instead of IDEs). 
@@ -150,7 +171,7 @@
 						</p>
 				</div>
 				<div class="bestpractices">
-					<h2 class="main-title">Popular Tools</div>
+					<h2 class="main-title">Popular Tools</h2>
 						<p class="main-text">This table summarizes the tools that have been mentioned here. It is not a comprehensive list, but I believe it covers the most popular tools (and "popular" is the right word - their respective users love them).
 						</p>
 						<table>
@@ -202,7 +223,7 @@
 						</table>
 				</div>
 				<div class="bestpractices">
-					<h2 class="main-title">Conclusion</div>
+					<h2 class="main-title">Conclusion</h2>
 						<p class="main-text">At heart TDD involves a simple cycle of: build a <span class="red">failing</span> test; code just enough to make the test pass; refactor to <span class="blue">remove</span> duplication. We also need to include this in a continuous testing framework so that as well as testing that what we just did works, we also test that we haven't broken anything that was already working.
 						</p>
 						<p class="main-text">Test Driven Development provides a method for developing software that offers strong guarantees that the final delivered software meets customer needs. It's still evolving as a method. Increasingly expressive tools, such as RSpec and Cucumber, are emerging that enable you to specify the behavior that is needed, and run those specifications as test cases against the implemented software. These are leading to a maturing of TDD practices, together with the possibility of a change in terminology (Behavior Driven Development - "meet the new boss, same as the old boss"). 
@@ -210,11 +231,13 @@
 						<p class="main-text">The claim of TDD is that if you follow this method then good software design will emerge. Oh, if life were so simple! Take a look at the entries in the glossary for a little more discussion on this, but do be aware that at the very least you need to have a strong command of good design practice before this will happen. 
 						</p>
 				</div>
-			-->
+
+				<a name="start_small"></a>
 				<div class="bestpractices">
-					<h2 class="main-title">Glossary</div>
+					<h2 class="main-title">Glossary</h2>
 						<div class="gloss">
 							<h4 class="gloss-title">API</h4>
+							<div class="arrow">^</div>
 							<p class="gloss-text"> API stands for 	Application Programming Interface. It basically specifies how one piece of software connects to another piece. One of the arts of good software design is to make these interfaces as clean and well specified as possible ("if you give me this I will send you that back in return"). See below for how APIs relate to Object Oriented Programming (OOP).</p>
 						</div>
 						<div class="gloss">
@@ -256,11 +279,5 @@
 				</div>
 			</div>
 		</div>
-		<!-- 
-		<div id="help">
-			<p>Need Some Help?</p>
-			<p>Check us out at Thinkful.com</p> 
-		</div>
-		-->
 	</body>
 </html>
